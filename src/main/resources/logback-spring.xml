@@ -27,7 +27,6 @@
     <logger name="org.apache" level="INFO" />
     <logger name="org.mybatis.spring" level="ERROR" />
     <logger name="org.springframework" level="INFO"></logger>
-    <logger name="springfox" level="ERROR"></logger>
     <root level="INFO">
         <appender-ref ref="demo" />
     </root>
