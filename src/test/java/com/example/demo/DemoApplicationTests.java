@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.dao.UserDao;
+import com.example.demo.dao.UserDaoRepository;
 import com.example.demo.entity.UserDO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
 import java.util.Optional;
 
 @RunWith(SpringRunner.class)
@@ -16,6 +18,9 @@ public class DemoApplicationTests {
 
 	@Autowired
 	private UserDao userDao;
+
+	@Autowired
+	private UserDaoRepository userDaoRepository;
 	@Test
 	public void contextLoads() {
 		UserDO userDO = new UserDO();
@@ -27,11 +32,8 @@ public class DemoApplicationTests {
 
 	@Test
 	public void getUserById(){
-		UserDO userDO = userDao.findById(2L).orElse(null);
-		if (userDO==null){
-			System.out.println("结果为空啊");
-		}
-		System.out.println(userDO.getName());
+		List<UserDO> userDOS = userDao.searchList("风");
+		System.out.println(userDOS.size());
 	}
 
 }
