@@ -15,18 +15,21 @@
         </encoder>
     </appender>
 
-    <logger name="com.example.demo" level="INFO" additivity="false">
+    <logger name="com.example.demo" level="debug" additivity="false">
         <appender-ref ref="demo"/>
     </logger>
 
     <logger name="com.example.demo.dao" level="DEBUG" />
-    <logger name="com.example.demo.service" level="INFO" />
+    <logger name="com.example.demo.service" level="debug" />
 
     <logger name="druid.sql.Statement" level="DEBUG" />
     <logger name="druid.sql.ResultSet" level="DEBUG" />
     <logger name="org.apache" level="INFO" />
     <logger name="org.mybatis.spring" level="ERROR" />
-    <logger name="org.springframework" level="INFO"></logger>
+    <logger name="org.springframework" level="WARN"></logger>
+    <logger name="org.hibernate" level="WARN"/>
+    <logger name="com.zaxxer" level="WARN"/>
+    <logger name="o.h" level="WARN"/>
     <root level="INFO">
         <appender-ref ref="demo" />
     </root>

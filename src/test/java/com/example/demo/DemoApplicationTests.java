@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Optional;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DemoApplicationTests {
@@ -21,6 +23,15 @@ public class DemoApplicationTests {
 		userDO.setName("风清扬");
 		userDao.save(userDO);
 
+	}
+
+	@Test
+	public void getUserById(){
+		UserDO userDO = userDao.findById(2L).orElse(null);
+		if (userDO==null){
+			System.out.println("结果为空啊");
+		}
+		System.out.println(userDO.getName());
 	}
 
 }
