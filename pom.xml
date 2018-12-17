@@ -36,6 +36,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.46</version>
+		</dependency>
 
 	</dependencies>
 
@@ -75,4 +81,37 @@
 		</pluginRepository>
 	</pluginRepositories>
 
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<filter-resource-name>dev</filter-resource-name>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>test</id>
+			<properties>
+				<filter-resource-name>test</filter-resource-name>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>alpha</id>
+			<properties>
+				<filter-resource-name>alpha</filter-resource-name>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>prod</id>
+			<properties>
+				<filter-resource-name>prod</filter-resource-name>
+			</properties>
+		</profile>
+	</profiles>
 </project>
