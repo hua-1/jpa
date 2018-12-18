@@ -6,13 +6,13 @@ public class IntegralTest {
         red.checkMoneyNumber(20,23);
         SendRedEnvelope envelope=new SendRedEnvelope();
         User user=new User();
-        envelope.sendRedEnvelope(20,2,null,0,user);
+        envelope.sendRedEnvelope(20,4,null,user);
         System.out.println(user.getNormal());
-
+        System.out.println(user.getVip());
         User user1=new User();
         RodRedEnvelope redEnvelope=new RodRedEnvelope();
-        redEnvelope.robRedEnvelope(20,1,0,0,user1);
+        redEnvelope.robRedEnvelope(20,1,0,user1);
 
-        System.out.println(user1.getNormal());
+        System.out.println(user1.getMaster());
     }
 }
