@@ -22,7 +22,7 @@ public class RodRedEnvelope {
             if (index != null) {
                 getRobResult(money, index, user);
             }
-            index = index + 1;
+            index = index - 1;
             return robRedEnvelope(money, index, envelopeId, envelopeNumber, user);
         }
     }
@@ -34,17 +34,17 @@ public class RodRedEnvelope {
      * @param user
      */
     public void  getRobResult(int money,int identity,User user){
-        switch (identity){
-            case 1:
+        switch (IdentityEnum.get(identity)){
+            case "NEW_USER":
                 user.setNewUser(getRobMoney(money,ConfigNumberEnum.ROBPROPORTION.getIndex(),ConfigNumberEnum.INTEGRAL.getIndex(),ConfigNumberEnum.SIXTY.getIndex()));
                 break;
-            case 2:
+            case "NONMAL":
                 user.setNormal(getRobMoney(money,ConfigNumberEnum.ROBPROPORTION.getIndex(),ConfigNumberEnum.INTEGRAL.getIndex(),ConfigNumberEnum.TWENTY.getIndex()));
                 break;
-            case 3:
+            case "VIP":
                 user.setVip(getRobMoney(money,ConfigNumberEnum.ROBPROPORTION.getIndex(),ConfigNumberEnum.INTEGRAL.getIndex(),ConfigNumberEnum.TEN.getIndex()));
                 break;
-            case 4:
+            case "AGENT":
                 user.setMaster(getRobMoney(money,ConfigNumberEnum.ROBPROPORTION.getIndex(),ConfigNumberEnum.INTEGRAL.getIndex(),ConfigNumberEnum.TEN.getIndex()));
                 break;
             default:
